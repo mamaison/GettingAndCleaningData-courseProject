@@ -31,4 +31,5 @@ mean_and_std[,2] <-mapvalues(mean_and_std[,2], c(1,2,3,4,5,6), c('WALKING', 'WAL
 measure_names <-names(mean_and_std[3:48])
 tidy_data <- melt(mean_and_std, id.vars=c('Subject','Activity'), measure.vars=measure_names,variable.name='Measure',value.name='Value') 
 arrange(tidy_data, Subject, Activity)
+write.table(tidy_data, file='tidy_data.txt', row.name=F)
 
